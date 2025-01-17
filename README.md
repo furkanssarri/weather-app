@@ -1,3 +1,3 @@
-# template
+# weather-app
 
-a template repo to have everything set up from the get-go
+a basic weather-app in conjunction with [the odin project](https://www.theodinproject.com/)'s javascript course.
