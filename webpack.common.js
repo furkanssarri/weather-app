@@ -11,6 +11,19 @@ module.exports = {
    plugins: [
       new HtmlWebpackPlugin({
          template: "./src/template.html",
+         inject: "body",
+         scriptLoading: "module",
       }),
    ],
+   module: {
+      rules: [
+         {
+            test: /\.(png|jpe?g|gif|svg)$/i,
+            type: 'asset/resource',
+            generator: {
+               filename: 'assets/[name][ext]',
+            },
+         },
+      ],
+   },
 };

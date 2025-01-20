@@ -6,9 +6,6 @@
    font-style: normal;
 } */
 
-body {
-   background-color: aliceblue;
-}
 /* CSS Reset */
 * {
    margin: 0;
@@ -16,7 +13,8 @@ body {
    box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
    height: 100%;
 }
 
@@ -25,11 +23,115 @@ body {
    -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
    display: block;
    max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
    font: inherit;
+}
+
+body {
+   background-color: #cee8fe!important;
+   font-size: 16px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.snow {
+   background: linear-gradient(to bottom, #b9e3fb, #ffffff);
+}
+
+.rain {
+   background: linear-gradient(to bottom, #a7f3a7, #6dd5ed);
+}
+
+.fog {
+   background: linear-gradient(to bottom, #b2b1b1, #d3d3d3);
+}
+
+.cloudy {
+   background: linear-gradient(to bottom, #c4d4d8, #e0eafcc5);
+}
+
+.clear-day {
+   background: linear-gradient(to bottom, #5bbdff, #ddfcbf8b);
+}
+
+.clear-night {
+   background: linear-gradient(to bottom, #3e575e, #000000);
+   color: white;
+}
+
+.default {
+   background: linear-gradient(to bottom, #cee8fe, #ffffff);
+}
+
+
+main {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: .5rem;
+   min-height: 50vh;
+}
+
+.container span {
+   display: flex;
+}
+
+#temp {
+   font-size: 1.5rem;
+   font-weight: bold;
+}
+
+#icon {
+   height: 90px;
+   width: 80px;
+}
+
+#address {
+   font-size: 2rem;
+   font-weight: bold;
+}
+
+#condition {
+   font-size: 1.3rem;
+}
+
+.colored-image {
+   filter: hue-rotate(180deg) brightness(1.2);
+   transition: filter 0.3s ease;
+}
+
+.colored-image:hover {
+   filter: hue-rotate(90deg) brightness(0.8);
+}
+
+form {
+   margin-top: auto;
+}
+
+
+.weather-details-item {
+   margin: 0 !important;
 }

@@ -1,11 +1,18 @@
-import { setUserInput, getUserInput, requestData } from "./logic";
+import { setUserInput, getUserInput, setUnitGroup, requestData } from "./logic";
 
 export function listenForm(form, e) {
    e.preventDefault();
-   
-   const userInput = form.querySelector("#search").value.trim();
+   const searchBar = form.querySelector("#search");
+   const userInput = searchBar.value.trim();
    setUserInput(userInput);
    requestData(getUserInput());
+
+   const unitInput = form.querySelector("#unit-select").value;
+   setUnitGroup(unitInput);
+
+   searchBar.value = "";
+   searchBar.autofocus = false;
+   
 }
 
 export function capitilizeFirstLetter(text) {

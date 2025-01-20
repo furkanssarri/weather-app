@@ -1,8 +1,10 @@
 import { displayWeather } from "./render";
+import { capitilizeFirstLetter } from "./utility";
 
 const _appState = {
    userInput: "",
    weatherData: {},
+   units: "",
 };
 
 export function setUserInput(input) {
@@ -21,7 +23,18 @@ export function getWeatherData() {
    return _appState.weatherData;
 }
 
-export async function requestData(input) {
+export function setUnitGroup(value) {
+   _appState.units = value;
+}
+
+export function getUnitGroup() {
+   return _appState.units;
+}
+
+export async function requestData() {
+   if (getWeatherData()) {
+      setWeatherData("");
+   }
    const apiKey = "JSCT6M8HX6GWLVH6HNTKWG94C";
    let locale =  getUserInput();
    let unitGroup = "metric";
@@ -30,27 +43,17 @@ export async function requestData(input) {
    try {
       const response = await fetch(url, { mode: "cors" });
       const weatherData = await response.json();
-      console.log(weatherData)
       setWeatherData({
-         locale: getUserInput(),
-         address: weatherData.address,
-         description: weatherData.description,
+         icon: weatherData.currentConditions.icon,
+         address: capitilizeFirstLetter(weatherData.address),
+         temp: weatherData.currentConditions.temp,
          condition: weatherData.currentConditions.conditions,
          feelslike: weatherData.currentConditions.feelslike,
-         humidity: weatherData.currentConditions.humidity,
-         icon: weatherData.currentConditions.icon,
-         precipprob: weatherData.currentConditions.precipprob,
-         preciptype: weatherData.currentConditions.preciptype,
-         temp: weatherData.currentConditions.temp,
-         tempmax: weatherData.currentConditions.tempmax,
-         tempmin: weatherData.currentConditions.tempmin,
          sunrise: weatherData.currentConditions.sunrise,
          sunset: weatherData.currentConditions.sunset,
-         windspeed: weatherData.currentConditions.windspeed,
       });
    } catch (err) {
       console.log(err);
    }
-   const stateData = getWeatherData();
-   displayWeather(stateData);
+   displayWeather();
 }
