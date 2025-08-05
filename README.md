@@ -2,6 +2,10 @@
 
 A simple weather application built as part of [The Odin Project](https://www.theodinproject.com/).
 
+## Live Demo
+
+Check out the app [live demo](https://furkanssarri.github.io/weather-app/) here.
+
 ## Features
 
 -  Search for current weather by city name
@@ -27,10 +31,6 @@ A simple weather application built as part of [The Odin Project](https://www.the
 
 2. **Open `index.html` in your browser**  
    No build step required.
-
-## Live Demo
-
-Check out the app [live demo](https://furkanssarri.github.io/weather-app/) here.
 
 ## Acknowledgements
 
