@@ -9,9 +9,30 @@ export function render() {
 
    mainArea.appendChild(container);
    document.body.appendChild(mainArea);
+   document.body.appendChild(createFooter());
    createForm();
 
    return container;
+}
+
+function createFooter() {
+   const date = new Date().getFullYear();
+   const footer = document.createElement("footer");
+   const anchor = document.createElement("a");
+   const icon = document.createElement("i");
+
+   icon.classList.add("fa-brands", "fa-github");
+   icon.style.marginRight = "8px";
+
+   anchor.href = "https://github.com/furkanssarri";
+   anchor.target = "_blank";
+   anchor.rel = "noopener noreferrer";
+   anchor.textContent = "furkanssarri";
+   anchor.append(date);
+   anchor.prepend(icon);
+
+   footer.appendChild(anchor);
+   return footer;
 }
 
 async function createForm() {
@@ -143,20 +164,17 @@ async function createElements(type, key, value) {
       }
       element.setAttribute("data-lucide", iconName);
    } else {
-
       if (key === "feelslike") {
          element.textContent = `${capitilizeFirstLetter(key)}: ${value}`;
       } else if (key === "sunrise" || key === "sunset") {
          element.textContent = value;
-         const iconElement = document.createElement("img")
+         const iconElement = document.createElement("img");
          iconElement.setAttribute("data-lucide", key);
-         iconElement.classList.add("me-2")
+         iconElement.classList.add("me-2");
          element.prepend(iconElement);
-         
       } else {
          element.textContent = value;
       }
-
    }
 
    element.classList.add("weather-details-item");

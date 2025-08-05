@@ -40,12 +40,12 @@ select {
 }
 
 body {
-   background-color: #cee8fe!important;
+   background-color: #cee8fe !important;
    font-size: 16px;
    display: flex;
    flex-direction: column;
    align-items: center;
-   justify-content: center;
+   justify-content: space-between;
 }
 
 .snow {
@@ -77,9 +77,9 @@ body {
    background: linear-gradient(to bottom, #cee8fe, #ffffff);
 }
 
-
 main {
    display: flex;
+   align-self: center;
    flex-direction: column;
    align-items: center;
    justify-content: center;
@@ -91,7 +91,7 @@ main {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   gap: .5rem;
+   gap: 0.5rem;
    min-height: 50vh;
 }
 
@@ -131,7 +131,16 @@ form {
    margin-top: auto;
 }
 
-
 .weather-details-item {
    margin: 0 !important;
+}
+
+footer {
+   justify-self: flex-end;
+   color: #000;
+}
+
+footer a {
+   text-decoration: none;
+   color: inherit;
 }
